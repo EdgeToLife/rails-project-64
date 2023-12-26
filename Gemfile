@@ -40,8 +40,11 @@ group :development, :test do
 end
 
 group :development do
-  gem 'pg'
   gem 'web-console'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :test do
