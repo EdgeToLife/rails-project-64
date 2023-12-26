@@ -6,6 +6,7 @@ setup: install
 
 install:
 	bin/setup
+	bin/rails db:migrate
 
 db-prepare:
 	bin/rails db:reset
