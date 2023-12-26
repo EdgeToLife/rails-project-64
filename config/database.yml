@@ -30,4 +30,3 @@ production:
   password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
   host: dpg-cm25o9i1hbls73bv8r30-a
   port: 5432
-  

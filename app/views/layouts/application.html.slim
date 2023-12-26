@@ -3,13 +3,16 @@ html.h-100
   head
     title
       = 'Блог'
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta charset="utf-8"
     == csrf_meta_tags
     == csp_meta_tag
-    meta name="keywords" content="template language"
-    meta name="author" content='author'
-    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
+    = javascript_importmap_tags
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"
 
   body.d-flex.flex-column.h-100
 
@@ -31,3 +34,7 @@ html.h-100
         .row.py-2
           = '2023'
           / = t('.hexlet_title', year: Time.current.year)
+
+    script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
+    link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css"
+    script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"

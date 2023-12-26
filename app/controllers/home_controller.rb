@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
-  def index
+  def hello
+    Sentry.capture_message('test message')
   end
 end
