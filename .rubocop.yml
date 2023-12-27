@@ -6,6 +6,7 @@ AllCops:
     - "db/migrate/**"
     - "vendor/**/*"
     - "node_modules/**/*"
+    - "config/**/*"
 
 Style/StringLiterals:
   Enabled: true
@@ -30,4 +31,7 @@ Metrics/BlockLength:
 #   Enabled: true
 
 Style/Documentation:
+  Enabled: false
+
+Style/HashEachMethods:
   Enabled: false

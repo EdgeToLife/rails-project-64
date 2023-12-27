@@ -1,4 +1,4 @@
-p style="color: green" = notice
+p style='color: green' = notice
 
 h1 Posts
 
@@ -6,6 +6,6 @@ h1 Posts
   - @posts.each do |post|
     == render post
     p
-      = link_to "Show this post", post
+      = link_to 'Show this post', post
 
 / = link_to "New post", new_post_path
