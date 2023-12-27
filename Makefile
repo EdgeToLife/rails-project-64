@@ -15,6 +15,8 @@ db-prepare:
 check: test lint
 
 test:
+	RAILS_ENV=test
+	make db-prepare
 	bin/rails test
 
 lint:
