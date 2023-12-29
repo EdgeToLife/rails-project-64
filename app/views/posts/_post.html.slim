@@ -1,13 +1,11 @@
 div id="#{dom_id post}"
-  p
-    strong Title:
+  h4
     =< post.title
   p
-    strong Body:
     =< post.body
-  p
-    strong Category:
-    =< post.category.name
-  p
-    strong Creator:
-    =< post.user_id
+/   p
+/     strong Category:
+/     =< post.category.name
+/   p
+/     strong Creator:
+/     =< post.user_id

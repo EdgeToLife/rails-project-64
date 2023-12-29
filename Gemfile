@@ -33,8 +33,11 @@ gem 'slim-rails', '~> 3.6', '>= 3.6.3'
 
 gem 'simple_form', '~> 5.3'
 
+gem 'ancestry'
+
 group :development, :test do
-  gem 'debug', platforms: %i[mri windows]
+  # gem 'debug', platforms: %i[mri windows]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker', '~> 3.2', '>= 3.2.2'
   gem 'sqlite3', '~> 1.4'
 end

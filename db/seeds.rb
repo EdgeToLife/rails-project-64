@@ -15,3 +15,21 @@
     name: Faker::Game.unique.genre
   )
 end
+
+3.times do |_index|
+  User.create!(
+    id: _index,
+    email: "user#{_index}@example.com",
+    password: 'secret',
+    encrypted_password: 'secret'
+  )
+end
+
+5.times do |_index|
+  Post.create!(
+    title: Faker::Lorem.sentence,
+    body: Faker::ChuckNorris.fact,
+    category_id: 1,
+    user_id: 1
+  )
+end

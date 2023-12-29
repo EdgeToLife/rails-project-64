@@ -1,7 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :posts
+  # resources :comments
+  # resources :posts
+
+  resources :posts do
+    resources :comments, only: [:index, :new, :create], module: :posts
+  end
+
+  resources :comments, only: [:show, :edit, :update, :destroy], module: :posts
+
   # get 'home/hello'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
