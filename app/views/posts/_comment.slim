@@ -1,0 +1,19 @@
+.comment-container style=("margin-left: #{level * 20}px")
+  .comment
+    div.ms-4
+    div.card.mt-2.rounded-0(id="comment-#{comment.id}")
+      div.card-header.border-0
+        span.me-2 
+          a.me-2(type="button", href="#comment-#{comment.id}")#
+        span.me-2
+          = comment.user.email
+        span.fs-6.text-muted
+          = comment.created_at.strftime('%d %b %Y, %H:%M')
+      div.card-body.border-0
+          = comment.content
+      div.card-footer.border-0
+        == render 'comment_form', id: comment.id
+
+      / Рекурсивно вызываем этот же partial для дочерних комментариев
+      - comment.children.each do |child|
+        = render 'comment', comment: child, level: level + 1

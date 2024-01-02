@@ -1,6 +1,7 @@
 class Posts::CommentsController < Posts::ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
   before_action :set_post, only: %i[ index new create ]
+  before_action :authenticate_user!, only: [:create]
 
   # GET /comments or /comments.json
   def index
@@ -28,7 +29,7 @@ class Posts::CommentsController < Posts::ApplicationController
     # @comment = Comment.new(comment_params)
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
-    @comment.parent_id = params[:parent_id]
+    @comment.parent_id = comment_params[:parent_id]
 
     respond_to do |format|
       if @comment.save

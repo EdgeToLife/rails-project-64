@@ -10,7 +10,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-10.times do |_index|
+5.times do |_index|
   Category.create!(
     name: Faker::Game.unique.genre
   )
@@ -21,7 +21,6 @@ end
     id: _index,
     email: "user#{_index}@example.com",
     password: 'secret',
-    encrypted_password: 'secret'
   )
 end
 

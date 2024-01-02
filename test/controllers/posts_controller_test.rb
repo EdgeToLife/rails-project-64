@@ -3,14 +3,11 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
-    # @user = users(:user_one)
-    # sign_in @user
+    @user = users(:user_one)
+    sign_in @user
     @post = posts(:post_one)
-    # @attrs = {
-    #   title: Faker::Movies::HarryPotter.character,
-    #   body: Faker::ChuckNorris.fact
-    # }
   end
 
   test 'should get index' do
