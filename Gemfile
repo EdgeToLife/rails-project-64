@@ -35,10 +35,11 @@ gem 'simple_form', '~> 5.3'
 
 gem 'ancestry'
 
+gem 'faker', '~> 3.2', '>= 3.2.2'
+
 group :development, :test do
   # gem 'debug', platforms: %i[mri windows]
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'faker', '~> 3.2', '>= 3.2.2'
   gem 'sqlite3', '~> 1.4'
 end
 

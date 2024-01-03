@@ -11,8 +11,9 @@
           = comment.created_at.strftime('%d %b %Y, %H:%M')
       div.card-body.border-0
           = comment.content
-      div.card-footer.border-0
-        == render 'comment_form', id: comment.id
+      - if user_signed_in?
+        div.card-footer.border-0
+          == render 'comment_form', id: comment.id
 
       / Рекурсивно вызываем этот же partial для дочерних комментариев
       - comment.children.each do |child|
