@@ -7,6 +7,7 @@ setup: install
 install:
 	bin/setup
 	bin/rails db:migrate
+	bin/rails db:reset
 
 db-prepare:
 	bin/rails db:reset
@@ -15,9 +16,9 @@ db-prepare:
 check: test lint
 
 test:
-	RAILS_ENV=test
-	make db-prepare
-	bin/rails test
+	RAILS_ENV=test bin/rails db:migrate
+	RAILS_ENV=test rake db:fixtures:load FIXTURES_PATH=test/fixtures ORDER=users,categories,posts,post_comments,post_likes
+	RAILS_ENV=test bin/rails test
 
 lint:
 	bundle exec rubocop

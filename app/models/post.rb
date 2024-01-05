@@ -4,7 +4,8 @@ class Post < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :comments, class_name: 'PostComment'
+  has_many :post_likes, dependent: :destroy
 
   validates :title, presence: true
-  validates :body, length: { maximum: 500 }
+  validates :body, length: { maximum: 1000 }
 end
