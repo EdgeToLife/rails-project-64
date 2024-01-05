@@ -6,12 +6,12 @@
       - like = @post.post_likes.find_by(user_id: current_user.id)
       = link_to post_like_path(post_id: @post.id, id: like.id), data: { "turbo-method": :delete } do
         i
-          img[src='/assets/hand-thumbs-up-fill.svg']
+          img[src='/assets/images/hand-thumbs-up-fill.svg']
     - else
       = link_to post_post_likes_path(@post), data: { "turbo-method": :post } do
         i
-          img[src='/assets/hand-thumbs-up.svg']
+          img[src='/assets/images/hand-thumbs-up.svg']
   - else
     = "#{@post.post_likes.count} "
     i
-      img[src='/assets/hand-thumbs-up.svg']
+      img[src='/assets/images/hand-thumbs-up.svg']
