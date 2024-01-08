@@ -1,7 +1,0 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-category_one:
-  name: Category1
-
-category_two:
-  name: Category2
