@@ -1,0 +1,4 @@
+h1 = 'Коллективный блог'
+#posts
+  - @posts.each do |post|
+    == render 'post_preview', post: post

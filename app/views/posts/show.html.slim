@@ -1,0 +1,10 @@
+== render @post
+
+.lead.mt-3
+  = 'Комментарии'
+- if user_signed_in?
+  == render 'comment_form', id: nil
+
+- @post.comments.each do |comment|
+  - if comment.parent_id.nil?
+    = render 'comment', comment: comment, level: 0

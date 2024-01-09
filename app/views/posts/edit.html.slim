@@ -1,0 +1,10 @@
+h1 Редактировать пост
+
+== render 'form', post: @post
+
+br
+
+div
+  => link_to 'Показать этот пост', @post
+  '|
+  =< link_to 'Назад к постам', posts_path

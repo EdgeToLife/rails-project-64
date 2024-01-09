@@ -1,0 +1,14 @@
+= simple_form_for @post, url: post_post_likes_path(@post), html: { method: :post } do |f|
+  - if user_signed_in?
+    = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+    = "#{@post.post_likes.count} "
+    - if @post.post_likes.where(user_id: current_user.id).exists?
+      - like = @post.post_likes.find_by(user_id: current_user.id)
+      = link_to post_like_path(post_id: @post.id, id: like.id), data: { "turbo-method": :delete } do
+        i.bi.bi-hand-thumbs-up-fill
+    - else
+      = link_to post_post_likes_path(@post), data: { "turbo-method": :post } do
+        i.bi.bi-hand-thumbs-up
+  - else
+    = "#{@post.post_likes.count} "
+    i.bi.bi-hand-thumbs-up
