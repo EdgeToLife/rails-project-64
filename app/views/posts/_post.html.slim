@@ -10,6 +10,20 @@
           = post.user.email
         span
           = time_ago_in_words(post.created_at)
-      div
-        span
-          = render 'likes'
+
+      - if user_signed_in?
+        = "#{@post.post_likes.count} "
+        - if @post.post_likes.where(user_id: current_user.id).exists?
+          - like = @post.post_likes.find_by(user_id: current_user.id)
+          = link_to post_like_path(post_id: @post.id, id: like.id), data: { turbo_method: :delete } do
+            i.bi.bi-hand-thumbs-up-fill
+        - else
+          = link_to post_post_likes_path(@post), data: { turbo_method: :post } do
+            i.bi.bi-hand-thumbs-up
+      - else
+        = "#{@post.post_likes.count} "
+        i.bi.bi-hand-thumbs-up
+
+      / div
+      /   span
+      /     = render 'likes'
