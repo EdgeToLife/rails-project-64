@@ -5,10 +5,10 @@ post_one:
   title: Post1Title
   body: BodyOfPost1
   category: :category_one
-  creator_id: 1
+  creator: 1
 
 post_two:
   id: 2
   body: BodyOfPost2
   category: :category_two
-  creator_id: 2
+  creator: 2

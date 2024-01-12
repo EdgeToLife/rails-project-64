@@ -2,7 +2,7 @@
 
 class Post < ApplicationRecord
   belongs_to :category
-  belongs_to :user, foreign_key: :creator_id
+  belongs_to :user, foreign_key: :creator
   has_many :comments, class_name: 'PostComment'
   has_many :post_likes, dependent: :destroy
 
