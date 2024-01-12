@@ -1,14 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-post_one:
-  id: 1
+one:
   title: Post1Title
   body: BodyOfPost1
-  category: :category_one
-  creator: 1
+  category: :one
+  creator: one
 
-post_two:
-  id: 2
+two:
+  title: Post2Title
   body: BodyOfPost2
-  category: :category_two
-  creator: 2
+  category: :two
+  creator: two

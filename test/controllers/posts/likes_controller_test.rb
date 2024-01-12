@@ -6,8 +6,8 @@ module Posts
   class LikesControllerTest < ActionDispatch::IntegrationTest
     include Devise::Test::IntegrationHelpers
     setup do
-      @user = users(:user_one)
-      @post = posts(:post_one)
+      @user = users(:one)
+      @post = posts(:one)
     end
 
     test 'should create a new like' do

@@ -7,7 +7,7 @@
     .d-flex.justify-content-between.small.text-muted.align-items-end
       div
         span.me-2
-          = post.user.email
+          = post.creator.email
         span
           = time_ago_in_words(post.created_at)
       div

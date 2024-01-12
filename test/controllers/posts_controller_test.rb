@@ -1,22 +1,24 @@
 # frozen_string_literal: true
-
+require 'pry'
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   setup do
-    @user = users(:user_one)
+    @user = users(:one)
     sign_in @user
-    @post = posts(:post_one)
+    @post = posts(:one)
   end
 
   test 'should get index' do
+    # binding.pry
     get posts_url
     assert_response :success
+    # assert_match /#{posts(:post_one).title}/, @response.body
   end
 
   test 'should get new' do
-    get new_post_url
+    get new_post_path
     assert_response :success
   end
 
@@ -32,7 +34,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show post' do
-    get post_url(@post)
+    get new_post_path(@post)
     assert_response :success
   end
 

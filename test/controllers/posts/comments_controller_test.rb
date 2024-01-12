@@ -6,8 +6,8 @@ module Posts
   class CommentsControllerTest < ActionDispatch::IntegrationTest
     include Devise::Test::IntegrationHelpers
     setup do
-      @user = users(:user_one)
-      @post = posts(:post_one)
+      @user = users(:one)
+      @post = posts(:one)
       sign_in @user
       Post.create(body: @post.body,
                   category_id: @post.category_id,

@@ -9,13 +9,11 @@
 #
 # two: {}
 # column: value
-user_one:
-  id: 1
+one:
   email: user1@example.com
   encrypted_password: secret
 
-user_two:
-  id: 2
+two:
   email: user2@example.com
   encrypted_password: secret
   

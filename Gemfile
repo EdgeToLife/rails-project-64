@@ -41,6 +41,7 @@ group :development, :test do
   # gem 'debug', platforms: %i[mri windows]
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'sqlite3', '~> 1.4'
+  gem 'pry', '~> 0.14.2'
 end
 
 group :development do

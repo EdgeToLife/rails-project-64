@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-comment_one:
+one:
   content: Comment1
   ancestry:
+  post: one
 
-comment_two:
+two:
   content: Comment2
   ancestry: nil
+  post: two
