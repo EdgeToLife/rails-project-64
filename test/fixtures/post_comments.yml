@@ -2,7 +2,7 @@
 
 comment_one:
   content: Comment1
-  ancestry: nil
+  ancestry:
 
 comment_two:
   content: Comment2
