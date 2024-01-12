@@ -1,5 +1,6 @@
 span
-  = "#{@post.post_likes.count}"
+  = @post.post_likes.count.to_s
+  |&nbsp;
 span
   - if user_signed_in?
     - if @post.post_likes.where(user_id: current_user.id).exists?
@@ -11,4 +12,3 @@ span
         i.bi.bi-hand-thumbs-up
   - else
     i.bi.bi-hand-thumbs-up
-    

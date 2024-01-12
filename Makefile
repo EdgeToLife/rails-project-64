@@ -6,8 +6,8 @@ setup: install
 
 install:
 	npm install
-    yarn build
-    yarn build:css
+	yarn build
+	yarn build:css
 	bin/setup
 	bin/rails db:migrate
 	bin/rails db:reset

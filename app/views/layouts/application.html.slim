@@ -9,7 +9,7 @@ html.h-100
     == csp_meta_tag
 
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
-    = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
     meta name="viewport" content="width=device-width, initial-scale=1"
 
   body.d-flex.flex-column.h-100
@@ -28,5 +28,5 @@ html.h-100
     footer.bg-dark.text-light.mt-auto
       .container-xl
         .row.py-2
-          | © Хекслет, 
+          | © Хекслет,&nbsp;
           = Time.current.year
