@@ -15,7 +15,7 @@ module Posts
     end
 
     def destroy
-      @like = @post.likes.find_by(user_id: current_user.id)
+      @like = @post.likes.find(params[:id])
       @like.destroy if @like.user_id == current_user.id
       redirect_to @post
     end

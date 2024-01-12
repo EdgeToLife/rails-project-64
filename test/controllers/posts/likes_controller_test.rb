@@ -45,5 +45,16 @@ module Posts
 
       assert_redirected_to new_user_session_path
     end
+
+    test 'should not destroy the like by other authenticated users' do
+      like = @post.likes.create(user_id: @user.id)
+      user = users(:two)
+      sign_in user
+      assert_no_difference 'PostLike.count' do
+        delete post_like_path(@post, like)
+      end
+
+      assert_redirected_to @post
+    end
   end
 end
