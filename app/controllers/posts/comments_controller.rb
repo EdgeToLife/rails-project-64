@@ -4,7 +4,7 @@ module Posts
   class CommentsController < Posts::ApplicationController
     before_action :set_comment, only: %i[show edit update destroy]
     before_action :set_post, only: %i[index new create]
-    before_action :authenticate_user!, only: [:create]
+    before_action :authenticate_user!, only: [:create, :destroy]
 
     # GET /comments
     def index

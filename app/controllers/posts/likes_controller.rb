@@ -15,8 +15,13 @@ module Posts
     end
 
     def destroy
-      @post.likes.find_by(user_id: current_user.id).destroy
-      redirect_to @post
+      @like = @post.likes.find_by(user_id: current_user.id)
+      if @like.user_id == current_user.id
+        @like.destroy
+        redirect_to @post
+      else
+        redirect_to @post
+      end
     end
 
     private
