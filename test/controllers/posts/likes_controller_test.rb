@@ -29,7 +29,7 @@ module Posts
 
     test 'should destroy the like' do
       sign_in @user
-      like = @post.post_likes.create(user_id: @user.id)
+      like = @post.likes.create(user_id: @user.id)
       assert_difference 'PostLike.count', -1 do
         delete post_like_path(@post, like)
       end
@@ -38,7 +38,7 @@ module Posts
     end
 
     test 'should not destroy the like if user is not authenticated' do
-      like = @post.post_likes.create(user_id: @user.id)
+      like = @post.likes.create(user_id: @user.id)
       assert_no_difference 'PostLike.count' do
         delete post_like_path(@post, like)
       end

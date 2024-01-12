@@ -6,7 +6,7 @@ module Posts
     before_action :authenticate_user!
 
     def create
-      @like = @post.post_likes.build(like_params)
+      @like = @post.likes.build(like_params)
       @like.user_id = current_user.id
       @like.save
       return unless @like.save
@@ -15,7 +15,7 @@ module Posts
     end
 
     def destroy
-      @post.post_likes.find_by(user_id: current_user.id).destroy
+      @post.likes.find_by(user_id: current_user.id).destroy
       redirect_to @post
     end
 

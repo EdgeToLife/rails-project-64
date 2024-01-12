@@ -1,10 +1,10 @@
 span
-  = @post.post_likes.count.to_s
+  = @post.likes.count.to_s
   |&nbsp;
 span
   - if user_signed_in?
-    - if @post.post_likes.where(user_id: current_user.id).exists?
-      - like = @post.post_likes.find_by(user_id: current_user.id)
+    - if @post.likes.where(user_id: current_user.id).exists?
+      - like = @post.likes.find_by(user_id: current_user.id)
       = link_to post_like_path(post_id: @post.id, id: like.id), data: { turbo_method: :delete } do
         i.bi.bi-hand-thumbs-up-fill
     - else

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:show, :edit, :update, :destroy], module: :posts
-  delete '/posts/:post_id/likes/:id', to: 'posts/likes#destroy'
+  # post '/posts/:post_id/likes', to: 'posts/likes#create'
+  # delete '/posts/:post_id/likes/:id', to: 'posts/likes#destroy'
 
   devise_for :users
 
