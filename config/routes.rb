@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: [:index, :new, :create], module: :posts
-    resources :likes, only: [:create, :destroy], module: :posts, as: :post_likes
+    resources :likes, only: [:create, :destroy], module: :posts
   end
 
   resources :comments, only: [:show, :edit, :update, :destroy], module: :posts
-  delete '/posts/:post_id/likes/:id', to: 'posts/likes#destroy', as: :post_like
+  delete '/posts/:post_id/likes/:id', to: 'posts/likes#destroy'
 
   devise_for :users
 
