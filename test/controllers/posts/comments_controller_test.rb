@@ -11,7 +11,7 @@ module Posts
       sign_in @user
       Post.create(body: @post.body,
                   category_id: @post.category_id,
-                  user_id: @post.user_id,
+                  creator_id: @post.creator_id,
                   title: @post.title)
       @comment = @post.comments.create(content: :comment_one)
     end

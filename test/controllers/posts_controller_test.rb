@@ -24,7 +24,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Post.count') do
       post posts_url, params: { post: { body: @post.body,
                                         category_id: @post.category_id,
-                                        user_id: @post.user_id,
+                                        creator_id: @post.creator_id,
                                         title: @post.title } }
     end
 
@@ -44,7 +44,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'should update post' do
     patch post_url(@post), params: { post: { body: @post.body,
                                              category_id: @post.category_id,
-                                             user_id: @post.user_id,
+                                             creator_id: @post.creator_id,
                                              title: @post.title } }
     assert_redirected_to post_url(@post)
   end
