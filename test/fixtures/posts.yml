@@ -2,12 +2,12 @@
 
 one:
   title: Post1Title
-  body: BodyOfPost1
+  body: BodyOfPost1. At least 100 symbols. Voluptas eaque excepturi voluptatem iusto fuga animi ipsa saepe repudiandae laudantium ex quis consequuntur pariatur odit officiis accusamus id ipsam temporibus vel officia molestiae unde sed et exercitationem illo facere qui ratione quos ab explicabo inventore veritatis quibusdam repellat commodi aut doloribus placeat quo nihil quod et fugit quis autem.
   category: :one
   creator: one
 
 two:
   title: Post2Title
-  body: BodyOfPost2
+  body: BodyOfPost2. At least 100 symbols. Quasi ea debitis quia et dicta sunt laudantium quis laborum possimus enim aliquid optio quod magnam quos voluptas est quae assumenda aut sequi culpa sit ipsa unde eos libero dolorum quia nisi et sint illum corporis aut saepe sint placeat et fugiat quidem adipisci et officiis aperiam est at temporibus.
   category: :two
   creator: two

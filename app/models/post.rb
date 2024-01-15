@@ -7,5 +7,5 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy, class_name: 'PostLike'
 
   validates :title, presence: true
-  validates :body, length: { maximum: 1000 }
+  validates :body, length: { minimum: 100, maximum: 1000 }
 end
