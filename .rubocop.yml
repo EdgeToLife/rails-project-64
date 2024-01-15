@@ -22,6 +22,8 @@ Layout/LineLength:
 
 Metrics/BlockLength:
   Max: 30
+  Exclude:
+    - 'config/initializers/simple_form_bootstrap.rb'
 
 Metrics/MethodLength:
   Max: 15
