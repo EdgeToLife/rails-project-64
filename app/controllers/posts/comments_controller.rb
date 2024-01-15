@@ -30,9 +30,9 @@ module Posts
 
       respond_to do |format|
         if @comment.save
-          format.html { redirect_to post_path(@comment.post), notice: 'Comment was created.' }
+          format.html { redirect_to post_path(@comment.post), notice: t('.create_success') }
         else
-          format.html { redirect_to post_path(@comment.post), notice: 'Error when adding a comment.' }
+          format.html { redirect_to post_path(@comment.post), notice: t('.create_error') }
           format.html { render :new, status: :unprocessable_entity }
         end
       end
@@ -42,7 +42,7 @@ module Posts
     def update
       respond_to do |format|
         if @comment.update(comment_params)
-          format.html { redirect_to post_path(@comment.post), notice: 'Comment was updated.' }
+          format.html { redirect_to post_path(@comment.post), notice: t('.update_success') }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end
@@ -54,7 +54,7 @@ module Posts
       @comment.destroy!
 
       respond_to do |format|
-        format.html { redirect_to comments_url, notice: 'Comment was destroyed.' }
+        format.html { redirect_to comments_url, notice: t('.destroy_success') }
       end
     end
 

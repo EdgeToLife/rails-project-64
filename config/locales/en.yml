@@ -28,4 +28,12 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  posts:
+    create_success: 'Post was successfully created.'
+    destroy_success: 'Post was successfully destroyed.'
+    update_success: 'Post was successfully updated.'
+    comments:
+      create_success: 'Comment was successfully created.'
+      create_error: 'Error when adding a comment.'
+      destroy_success: 'Comment was successfully destroyed.'
+      update_success: 'Comment was successfully updated.'
