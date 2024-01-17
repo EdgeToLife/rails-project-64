@@ -2,28 +2,27 @@
 
 module Posts
   class CommentsController < Posts::ApplicationController
-    before_action :set_comment, only: %i[show edit update destroy]
-    before_action :set_post, only: %i[index new create]
-    before_action :authenticate_user!, only: %i[create destroy]
-
     # GET /comments
     def index
+      @post = Post.find(params[:post_id])
       @comments = Comment.arrange(order: :created_at)
     end
 
     # GET /comments/1 or /comments/1.json
-    def show; end
+    def show
+      @comment = PostComment.includes(:creator).find(params[:id]).order('created_at')
+    end
 
     # GET /comments/new
     def new
+      @post = Post.find(params[:post_id])
       @comment = @post.comments.build
     end
 
-    # GET /comments/1/edit
-    def edit; end
-
     # POST /comments
     def create
+      authenticate_user!
+      @post = Post.find(params[:post_id])
       @comment = @post.comments.build(comment_params)
       @comment.user_id = current_user.id
       @comment.parent_id = comment_params[:parent_id]
@@ -38,19 +37,10 @@ module Posts
       end
     end
 
-    # PATCH/PUT /comments/1
-    def update
-      respond_to do |format|
-        if @comment.update(comment_params)
-          format.html { redirect_to post_path(@comment.post), notice: t('.update_success') }
-        else
-          format.html { render :edit, status: :unprocessable_entity }
-        end
-      end
-    end
-
     # DELETE /comments/1
     def destroy
+      authenticate_user!
+      @comment = PostComment.find(params[:id])
       @comment.destroy!
 
       respond_to do |format|
@@ -60,16 +50,8 @@ module Posts
 
     private
 
-    def set_comment
-      @comment = PostComment.find(params[:id])
-    end
-
     def comment_params
       params.require(:post_comment).permit(:content, :post_id, :user_id, :parent_id)
-    end
-
-    def set_post
-      @post = Post.find(params[:post_id])
     end
   end
 end

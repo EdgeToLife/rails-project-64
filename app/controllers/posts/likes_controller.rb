@@ -2,10 +2,9 @@
 
 module Posts
   class LikesController < ApplicationController
-    before_action :set_post
-    before_action :authenticate_user!
-
     def create
+      authenticate_user!
+      @post = Post.find(params[:post_id])
       @like = @post.likes.build(like_params)
       @like.user_id = current_user.id
       @like.save
@@ -15,6 +14,8 @@ module Posts
     end
 
     def destroy
+      authenticate_user!
+      @post = Post.find(params[:post_id])
       @like = @post.likes.find(params[:id])
       @like.destroy if @like.user_id == current_user.id
       redirect_to @post
@@ -24,10 +25,6 @@ module Posts
 
     def like_params
       params.permit(:user_id, :post_id, :_method)
-    end
-
-    def set_post
-      @post = Post.find(params[:post_id])
     end
   end
 end

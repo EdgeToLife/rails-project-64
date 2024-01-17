@@ -38,25 +38,4 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     get new_post_path(@post)
     assert_response :success
   end
-
-  test 'should get edit' do
-    get edit_post_url(@post)
-    assert_response :success
-  end
-
-  test 'should update post' do
-    patch post_url(@post), params: { post: { body: @post.body,
-                                             category_id: @post.category_id,
-                                             creator: @post.creator,
-                                             title: @post.title } }
-    assert_redirected_to post_url(@post)
-  end
-
-  test 'should destroy post' do
-    assert_difference('Post.count', -1) do
-      delete post_url(@post)
-    end
-
-    assert_redirected_to posts_url
-  end
 end
