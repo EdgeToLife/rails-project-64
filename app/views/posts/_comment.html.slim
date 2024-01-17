@@ -13,7 +13,12 @@
           = comment.content
       - if user_signed_in?
         .card-footer.border-0
-          == render 'comment_form', id: comment.id
+          - new_comment_id = "collapseNewComment-#{comment.id}"
+          a.btn.btn-link.btn-block.text-left data-bs-toggle="collapse" data-bs-target="##{new_comment_id}" aria-expanded="false" aria-controls="##{new_comment_id}"
+            | овтетить
+          .collapse id="#{new_comment_id}"
+            .card-body
+              == render 'comment_form', id: comment.id
 
       / Рекурсивно вызываем этот же partial для дочерних комментариев
       - comment.children.each do |child|
