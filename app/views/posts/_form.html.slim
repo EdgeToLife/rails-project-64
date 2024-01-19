@@ -6,7 +6,6 @@
     = f.input :title, label: 'Заголовок'
     = f.input :body, label: 'Содержимое'
     = f.association :category, label: 'Категория'
-    / = f.association :user, input_html: { value: current_user.id }
 
   .form-actions
     = f.button :submit, label: 'Создать пост', class: 'btn btn-primary'

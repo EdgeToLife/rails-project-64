@@ -15,7 +15,7 @@ module Posts
 
     def destroy
       authenticate_user!
-      @post = Post.find(params[:post_id])
+      @post = Post.includes(:likes).find(params[:post_id])
       @like = @post.likes.find(params[:id])
       @like.destroy if @like.user_id == current_user.id
       redirect_to @post
