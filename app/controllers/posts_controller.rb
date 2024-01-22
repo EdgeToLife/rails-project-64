@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @post = Post.includes(:comments, :likes).order('created_at').find(params[:id])
+    @post = Post.includes(:comments, :likes).order('post_comments.created_at').find(params[:id])
     @comment = PostComment.new
   end
 
@@ -21,7 +21,8 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     authenticate_user!
-    @post = current_user.posts.includes(:category).new(post_params)
+    @categories = Category.all
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save

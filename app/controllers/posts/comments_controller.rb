@@ -2,12 +2,6 @@
 
 module Posts
   class CommentsController < Posts::ApplicationController
-    # GET /comments
-    def index
-      @post = Post.find(params[:post_id])
-      @comments = Comment.arrange(order: :created_at)
-    end
-
     # GET /comments/new
     def new
       authenticate_user!
