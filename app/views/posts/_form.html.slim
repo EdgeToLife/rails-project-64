@@ -1,11 +1,11 @@
-= simple_form_for(@post) do |f|
+= simple_form_for(post) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :title, label: 'Заголовок'
-    = f.input :body, label: 'Содержимое'
-    = f.association :category, label: 'Категория'
+    = f.input :title, label: t('title')
+    = f.input :body, label: t('content')
+    = f.association :category, label: t('category')
 
   .form-actions
-    = f.button :submit, label: 'Создать пост', class: 'btn btn-primary'
+    = f.button :submit, t('create_post'), class: 'btn btn-primary'

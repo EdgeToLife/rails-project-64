@@ -11,4 +11,4 @@
         span
           = time_ago_in_words(post.created_at)
       div
-        = render 'likes'
+        = render 'likes', post: post, like: like

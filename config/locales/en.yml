@@ -37,3 +37,4 @@ en:
       create_error: 'Error when adding a comment.'
       destroy_success: 'Comment was successfully destroyed.'
       update_success: 'Comment was successfully updated.'
+  back: 'Back'

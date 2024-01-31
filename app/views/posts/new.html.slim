@@ -1,8 +1,9 @@
-h1 Новый пост
+h1
+  = t('new_post')
 
 == render 'form', post: @post
 
 br
 
 div
-  = link_to 'Назад к постам', posts_path
+  = link_to t('back_to_posts'), posts_path

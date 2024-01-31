@@ -28,6 +28,7 @@ gem 'sentry-rails'
 gem 'sentry-ruby'
 
 gem 'devise', '~> 4.9', '>= 4.9.3'
+gem 'devise-i18n'
 
 gem 'slim-rails', '~> 3.6', '>= 3.6.3'
 
@@ -39,10 +40,13 @@ gem 'faker', '~> 3.2', '>= 3.2.2'
 
 gem 'turbolinks', '~> 5'
 
+gem 'rails-i18n'
+
 group :development, :test do
   # gem 'debug', platforms: %i[mri windows]
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry', '~> 0.14.2'
+  gem 'rubocop-rails', '~> 2.23'
   gem 'sqlite3', '~> 1.4'
 end
 
@@ -57,7 +61,6 @@ end
 group :test do
   gem 'capybara'
   gem 'minitest-power_assert'
-  gem 'rubocop-rails', '~> 2.23'
   gem 'selenium-webdriver'
   gem 'slim_lint', '~> 0.24.0'
 end

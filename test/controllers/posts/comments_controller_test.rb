@@ -9,18 +9,15 @@ module Posts
       @user = users(:one)
       @post = posts(:one)
       sign_in @user
-      Post.create(body: @post.body,
-                  category_id: @post.category_id,
-                  creator: @post.creator,
-                  title: @post.title)
-      @comment = @post.comments.create(content: :comment_one)
+      @comment_attributes = { content: Faker::ChuckNorris.fact }
     end
 
     test 'should create comment' do
       assert_difference('PostComment.count') do
-        post post_comments_url(@post), params: { post_comment: { content: @comment.content } }
+        post post_comments_url(@post), params: { post_comment: @comment_attributes }
       end
-
+      created_comment = PostComment.last
+      assert_equal @comment_attributes[:content], created_comment.content
       assert_redirected_to post_url(@post)
     end
   end

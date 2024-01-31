@@ -3,14 +3,10 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
-  resources :posts do
-    resources :comments, only: %i[index new create], module: :posts
+  resources :posts, only: %i[index show new create] do
+    resources :comments, only: %i[create], module: :posts
     resources :likes, only: %i[create destroy], module: :posts
   end
-
-  resources :comments, only: %i[show edit update destroy], module: :posts
-  # post '/posts/:post_id/likes', to: 'posts/likes#create'
-  # delete '/posts/:post_id/likes/:id', to: 'posts/likes#destroy'
 
   devise_for :users
 

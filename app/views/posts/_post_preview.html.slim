@@ -6,8 +6,8 @@
     p
     .text-left.small.text-muted.mt-auto
       span.me-2
-        | Понравилось:&nbsp;
-        = post.likes.count
+        = t('liked')
+        = post.likes_count
       span.me-2
         = time_ago_in_words(post.created_at)
       span.me-2

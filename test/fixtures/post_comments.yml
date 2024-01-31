@@ -4,8 +4,11 @@ one:
   content: Comment1
   ancestry:
   post: one
+  user: one
 
 two:
   content: Comment2
   ancestry: nil
   post: two
+  user: two
+  

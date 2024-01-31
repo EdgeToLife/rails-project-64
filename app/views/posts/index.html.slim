@@ -1,4 +1,5 @@
-h1 = 'Коллективный блог'
+h1
+  = t('blog_title')
 #posts
   - @posts.each do |post|
     == render 'post_preview', post: post

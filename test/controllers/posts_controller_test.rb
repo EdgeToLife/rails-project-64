@@ -12,10 +12,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    # binding.pry
     get posts_url
     assert_response :success
-    # assert_match /#{posts(:post_one).title}/, @response.body
   end
 
   test 'should get new' do
@@ -24,18 +22,22 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create post' do
+    category = categories(:one)
+    attrs = {
+      title: Faker::Lorem.sentence,
+      body: Faker::Lorem.paragraph_by_chars(number: 100),
+      category_id: category.id
+    }
     assert_difference('Post.count') do
-      post posts_url, params: { post: { body: @post.body,
-                                        category_id: @post.category_id,
-                                        creator: @post.creator,
-                                        title: @post.title } }
+      post posts_url, params: { post: attrs }
     end
-
-    assert_redirected_to post_url(Post.last)
+    post = Post.find_by(attrs)
+    assert { post }
+    assert_redirected_to post_url(post)
   end
 
   test 'should show post' do
-    get new_post_path(@post)
+    get post_url(@post)
     assert_response :success
   end
 end

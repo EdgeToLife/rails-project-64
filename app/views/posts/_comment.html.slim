@@ -15,11 +15,11 @@
         .card-footer.border-0
           - new_comment_id = "collapseNewComment-#{comment.id}"
           a.btn.btn-link.btn-block.text-left data-bs-toggle="collapse" data-bs-target="##{new_comment_id}" aria-expanded="false" aria-controls="##{new_comment_id}"
-            | овтетить
+            = t('respond')
           .collapse id="#{new_comment_id}"
             .card-body
-              == render 'comment_form', id: comment.id
-
-      / Рекурсивно вызываем этот же partial для дочерних комментариев
-      - comment.children.each do |child|
-        = render 'comment', comment: child, level: level + 1
+              == render 'comment_form', parent_id: comment.id, new_comment: new_comment, post: post
+      - if sub_comments.present?
+          .children
+            - sub_comments.each do |child, sub_children|
+              = render partial: 'comment', locals: { comment: child, sub_comments: sub_children, level: level + 1, new_comment: new_comment, post: post }
