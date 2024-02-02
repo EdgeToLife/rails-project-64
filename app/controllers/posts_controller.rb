@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @post = Post.includes(:comments, :likes).order('post_comments.created_at').find(params[:id])
+    @post = Post.find(params[:id])
     @like = (@post.likes.find_by(user_id: current_user.id) if user_signed_in?)
     @new_comment = PostComment.new
     @comments_tree = @post.comments.includes(:user).arrange(order: :created_at)
